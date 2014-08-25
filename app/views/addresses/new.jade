@@ -1,0 +1,15 @@
+extends ../shared/template
+block content
+    h2 Add Address
+    form(method='post' action='/addresses/new')
+      input(type='hidden' name='userId' value=user._id)
+      .form-group
+        label Name
+        input.form-control#name(type='text' name='name')
+        label Address
+        input.form-control#address(type='text' name='address')
+        label Color
+        input.form-control#color(type='color' name='color')
+        label Twitter
+        input.form-control#twitter(type='text' name='twitter')
+      button.btn.btn-default Submit

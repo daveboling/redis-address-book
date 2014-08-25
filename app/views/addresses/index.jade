@@ -1,0 +1,14 @@
+extends ../shared/template
+block content
+  h2 Address Book
+  table.table
+    th Name
+    th Color
+    th Twitter
+    th Address
+    each address in addresses
+      tr
+        td= address.name
+        td(style='background-color: #{address.color}')= address.color
+        td= address.twitter
+        td= address.address

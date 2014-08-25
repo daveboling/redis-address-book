@@ -10,7 +10,17 @@
 
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        li: a(href='#') About
-        li: a(href='#') Faq
-        li: a(href='#') Contact
+        -if(user)
+          li: a(href='#')= user.email
+          li: a(href='/addresses') Addresses
+          li: a(href='/addresses/new') Add Address
+          li
+            form.navbar-form(method='post' action='/logout')
+              .form-group
+                input(type='hidden' name='_method' value='delete')
+                button.btn.btn-danger Logout
+        -else
+          li: a(href='/login') Login
+          li: a(href='/register') Register
+          li: a(href='#') Welcome Guest!
 
